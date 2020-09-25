@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Oro By Figliuolo</title>
+  </head>
+  <body>
+    <div class="topbar">
+      <!-- Per mobile -->
+      <div class="topbar__search"><img src="./img/icons/search-icon.svg" alt="search-icon" /></div>
+      <!-- LOGO -->
+      <div class="topbar__logo">
+        <a href="./index.html"><img src="img/Logo.svg" alt="mariomele-logo" /></a>
+      </div>
+      <div class="topbar__menu"><img src="./img/icons/menu-icon.svg" alt="menu-icon" /></div>
+
+      <div class="desktop topbar__main__container">
+        <!-- Parte del menu con voci categorie-about-shop etcc. + searchbar -->
+        <div class="topbar__main">
+          <ul class="topbar__links">
+            <li class="dropdown-portfolio capitalize">
+              categoria
+              <div class="dropdown-content"></div>
+            </li>
+            <li class="capitalize">categoria</li>
+            <li class="capitalize">categoria</li>
+            <li class="capitalize">categoria</li>
+            <li class="capitalize">categoria</li>
+          </ul>
+          <div class="topbar__searchbar">
+            <input type="text" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="side-menu" class="sidemenu">
+      <div class="sidemenu__header">
+        <div class="sidemenu__header__close-logo"><img src="img/icons/close-menu.svg" alt="" /></div>
+        <div class="sidemenu__header__logo"><img src="./img/logo.svg" alt="" /></div>
+        <div class="sidemenu__header__search-bar">
+          <input type="text" placeholder="Cosa stai cercando?" /><a href="#"><img src="./img/icons/search-icon.svg" alt="" /></a>
+        </div>
+      </div>
+      <div class="sidemenu__body">
+        <ul>
+          <li><a href="#" class="capitalize">il mio account</a></li>
+          <li><a href="#" class="capitalize">categorie</a></li>
+          <li><a href="#" class="capitalize">promo e saldi</a></li>
+          <li><a href="#" class="capitalize">novità</a></li>
+          <li><a href="#" class="capitalize">chi siamo</a></li>
+          <li><a href="#" class="capitalize">assistenza</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="banner">
+      <img
+        src="https://images.unsplash.com/photo-1511745564573-fec5d8b7e907?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+        alt="promo oro by figliuolo"
+      />
+      <h2 class="capitalize">Titolo per vendere qualcosa</h2>
+      <div class="banner__button">
+        <button class="capitalize is-light btn-border">Vai all'offerta</button>
+      </div>
+    </div>
+    <main class="shop-info">
+      <div class="shop-info__title">
+        <h1 class="capitalize">breve descrizione del negozio</h1>
+      </div>
+      <p>
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam
+        consequat sunt nostrud amet.
+      </p>
+      <img src="https://wallpaperset.com/w/full/7/2/8/462752.jpg" alt="negozio oro by figliuolo" />
+      <div class="shop-info__details">
+        <a href="">
+          <img src="./img/icons/location-icon.svg" alt="" />
+          <p>Ci trovi in <b>via Vittorio Emanuele, 38</b></p>
+        </a>
+        <a href="#">
+          <img src="./img/icons/instagram-icon.svg" alt="" />
+          <p><b>Seguici su Instagram</b></p>
+        </a>
+      </div>
+    </main>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

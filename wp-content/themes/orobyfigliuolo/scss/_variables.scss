@@ -1,0 +1,131 @@
+$primary-color: #ffffff;
+$orange: #fc6b52;
+$violet: #662b60;
+$dark-violet: #4a2b3b;
+$panna: #fbf5ef;
+$light-panna: #faf9f9;
+
+// Fonts
+$header-font: "Jost", sans-serif;
+$roboto: "Roboto", sans-serif;
+
+html {
+  font-family: $roboto;
+  font-size: 1.12rem;
+}
+
+@mixin selfCentered {
+  align-self: center;
+  justify-self: center;
+}
+
+@mixin flexCenter($direction, $space) {
+  display: flex;
+  justify-content: $space;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin button {
+  height: min-content;
+  color: $primary-color;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  font-family: $header-font;
+  font-size: 5vw;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  // width: 55%;
+  justify-self: center;
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  p {
+    width: 100%;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: $header-font;
+}
+
+button {
+  height: min-content;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  font-family: $header-font;
+  font-size: 5vw;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  // width: 55%;
+  justify-self: center;
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+  p {
+    width: 100%;
+  }
+}
+
+.is-primary {
+  background-color: black;
+  color: $primary-color;
+}
+
+.is-light {
+  background-color: $primary-color;
+  color: black;
+}
+
+.btn-border {
+  border: 1.75px solid black;
+}
+
+$font-weights: (
+  "ultralight": 200,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+  "xtr-bold": 800,
+  "max": 900,
+);
+
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+.capitalize {
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.3rem;
+  font-family: $roboto;
+}
+
+.header-font {
+  font-family: $header-font;
+}
