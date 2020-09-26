@@ -83,6 +83,9 @@ function obf_setup() {
     }
     add_action('wp_enqueue_scripts', 'obf_scripts');
     
+    // enqueue_block_editor_assets – For enqueueing JavaScript and CSS in the admin editor.
+    add_action( 'enqueue_block_editor_assets', 'obf_styles' );
+    
     /**
      * Remove the default emoji styles slowing down the website
      *
@@ -90,5 +93,43 @@ function obf_setup() {
      */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+    add_action('acf/init', 'obf_acf_blocks_init');
+
+    // Advanced custom field config
+    function obf_acf_blocks_init() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // // Register a testimonial block.
+        // acf_register_block_type(array(
+        //     'name'              => 'square',
+        //     'title'             => 'Quadrato',
+        //     'description'       => 'Un quadratino colorato',
+        //     'render_template'   => 'template-parts/blocks/square/square.php',
+        //     'category'          => 'formatting',
+        // ));
+
+
+        // Register a banner block.
+        acf_register_block_type(array(
+            'name'              => 'banner',
+            'title'             => 'Banner pubblicitario',
+            'description'       => 'Banner pubblicitario ',
+            'render_template'   => 'template-parts/blocks/banner.php',
+            'category'          => 'formatting',
+        ));
+
+        // Shop-info block
+        acf_register_block_type(array(
+            'name'              => 'shop-info',
+            'title'             => 'Sezione negozio info',
+            'description'       => 'Sezione con le info riguardo il negozio',
+            'render_template'   => 'template-parts/blocks/info.php',
+            'category'          => 'formatting',
+        ));
+    }
+}
     
     
