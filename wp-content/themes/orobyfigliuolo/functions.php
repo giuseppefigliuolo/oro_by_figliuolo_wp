@@ -39,6 +39,9 @@ function obf_setup() {
         add_theme_support("wp-block-styles");
         add_theme_support("align-wide");
         add_theme_support( 'responsive-embeds' );
+
+        add_theme_support('menus');
+        // Set up main menu
         register_nav_menus( ['main_menu' => 'Menu Principale' ] );    
     }
     
@@ -71,7 +74,8 @@ function obf_setup() {
         
         // enqueue our style.css file
         wp_enqueue_style( 'obf-reset', get_stylesheet_directory_uri().'/style.css', array(), null , 'all' );
-        wp_enqueue_style( 'obf-style', OBF_INCLUDES.'css/main.css', array( 'obf-reset' ),  null, 'all' );
+        wp_enqueue_style( 'obf-style', OBF_INCLUDES.'css/main.css', array( 'obf-reset' ),  null, 'all' );        
+        wp_enqueue_style( 'swiper_styles', 'https://unpkg.com/swiper/swiper-bundle.min.css', array('obf-style') , null , 'all');
         
     }
     add_action( 'wp_enqueue_scripts', 'obf_styles' );
@@ -79,12 +83,18 @@ function obf_setup() {
     function obf_scripts(){
           // remove jquery and add scripts
         //   wp_deregister_script('jquery');
-        wp_enqueue_script( 'obf_script', OBF_INCLUDES.'js/script.js', array() , null , 'all');
+        wp_enqueue_script( 'obf_script', OBF_INCLUDES.'js/index.js', array() , null , 'all');
     }
     add_action('wp_enqueue_scripts', 'obf_scripts');
-    
+
+    function obf_backend_styles() {
+        // enqueue our style.css file
+        wp_enqueue_style( 'obf-reset', get_stylesheet_directory_uri().'/style.css', array(), null , 'all' );
+        wp_enqueue_style( 'obf-style', OBF_INCLUDES.'css/main.css', array( 'obf-reset' ),  null, 'all' );
+    }
     // enqueue_block_editor_assets – For enqueueing JavaScript and CSS in the admin editor.
-    add_action( 'enqueue_block_editor_assets', 'obf_styles' );
+    add_action( 'enqueue_block_editor_assets', 'obf_backend_styles' );
+    
     
     /**
      * Remove the default emoji styles slowing down the website
@@ -101,17 +111,6 @@ function obf_setup() {
 
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
-
-        // // Register a testimonial block.
-        // acf_register_block_type(array(
-        //     'name'              => 'square',
-        //     'title'             => 'Quadrato',
-        //     'description'       => 'Un quadratino colorato',
-        //     'render_template'   => 'template-parts/blocks/square/square.php',
-        //     'category'          => 'formatting',
-        // ));
-
-
         // Register a banner block.
         acf_register_block_type(array(
             'name'              => 'banner',
@@ -129,7 +128,13 @@ function obf_setup() {
             'render_template'   => 'template-parts/blocks/info.php',
             'category'          => 'formatting',
         ));
+        }
     }
-}
+
+    function obf_add_woocommerce_support() {
+        add_theme_support( 'woocommerce' );
+    }
+    
+    add_action( 'after_setup_theme', 'obf_add_woocommerce_support' );
     
     

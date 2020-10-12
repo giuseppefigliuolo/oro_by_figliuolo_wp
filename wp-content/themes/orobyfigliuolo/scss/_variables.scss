@@ -4,10 +4,14 @@ $violet: #662b60;
 $dark-violet: #4a2b3b;
 $panna: #fbf5ef;
 $light-panna: #faf9f9;
+$dark: rgb(26, 26, 26);
+$light-dark: rgb(63, 63, 63);
 
 // Fonts
 $header-font: "Jost", sans-serif;
 $roboto: "Roboto", sans-serif;
+
+$border-bottom: 1px solid #8f8a8a;
 
 html {
   font-family: $roboto;
@@ -28,17 +32,15 @@ html {
 
 @mixin button {
   height: min-content;
-  color: $primary-color;
   border: none;
-  padding: 1rem 2rem;
+  padding: 0.7rem 1.8rem;
   margin: 0;
   text-decoration: none;
   font-family: $header-font;
-  font-size: 5vw;
+  font-size: 1rem;
   cursor: pointer;
   text-align: center;
   transition: background 250ms ease-in-out, transform 150ms ease;
-  // width: 55%;
   justify-self: center;
   &:hover,
   &:focus {
@@ -58,40 +60,58 @@ img {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   text-align: center;
   font-family: $header-font;
+  font-weight: weight(regular);
 }
 
-button {
-  height: min-content;
-  border: none;
-  padding: 1rem 2rem;
-  margin: 0;
-  text-decoration: none;
-  font-family: $header-font;
-  font-size: 5vw;
-  cursor: pointer;
-  text-align: center;
-  transition: background 250ms ease-in-out, transform 150ms ease;
-  // width: 55%;
+@mixin opacity {
+  filter: brightness(75%);
+}
+
+@mixin centered-child {
+  align-self: center;
   justify-self: center;
-  &:hover,
-  &:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  &:active {
-    transform: scale(0.98);
-  }
-  p {
-    width: 100%;
-  }
 }
 
-.is-primary {
-  background-color: black;
+// button {
+//   height: min-content;
+//   border: none;
+//   padding: 1rem 2rem;
+//   margin: 0;
+//   text-decoration: none;
+//   font-family: $header-font;
+//   font-size: 5vw;
+//   cursor: pointer;
+//   text-align: center;
+//   transition: background 250ms ease-in-out, transform 150ms ease;
+//   // width: 55%;
+//   justify-self: center;
+//   &:hover,
+//   &:focus {
+//     outline: none;
+//     box-shadow: none;
+//   }
+//   &:active {
+//     transform: scale(0.98);
+//   }
+//   p {
+//     width: 100%;
+//   }
+// }
+
+.is-dark {
+  background-color: rgb(26, 26, 26);
   color: $primary-color;
+}
+
+.light {
+  color: $primary-color;
+}
+.dark {
+  color: black;
 }
 
 .is-light {
@@ -101,6 +121,18 @@ button {
 
 .btn-border {
   border: 1.75px solid black;
+}
+
+.title {
+  padding: 15px 0 10px 0;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: $header-font;
+}
+
+.desktop {
+  display: none;
 }
 
 $font-weights: (

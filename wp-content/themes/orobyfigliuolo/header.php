@@ -7,47 +7,76 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
     <title>Oro By Figliuolo</title>
     <?php
-	/**
-	 * the wp_head() function lets WordPress execute all the pre-body operations including the injection of important styles and scripts.
-	 * This function call should always be inside your <head> tag
-	 * 
-	 * @see  https://developer.wordpress.org/reference/functions/wp_head/
-	 */
-	wp_head();
-	?>
+      /**
+       * the wp_head() function lets WordPress execute all the pre-body operations including the injection of important styles and scripts.
+       * This function call should always be inside your <head> tag
+       * 
+       * @see  https://developer.wordpress.org/reference/functions/wp_head/
+       */
+      wp_head();
+    ?>
   </head>
   <body <?php body_class(); ?>>
-      <!-- STARTS WEBSITE BODY -->
-    <div class="topbar">
-      <!-- Per mobile -->
-      <div class="topbar__search"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="search-icon" /></div>
-      <!-- LOGO -->
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <!-- MOBILE -->
+      <div class="mobile topbar__search"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="search-icon" /></div>
       <div class="topbar__logo">
-        <a href="./index.html"><img src="<?php echo OBF_INCLUDES ?>img/Logo.svg" alt="oro by figliuolo logo" /></a>
+        <a href="./index.html"><img src="<?php echo OBF_INCLUDES ?>img/Logo.svg" alt="orobyfigliuolo-logo" /></a>
       </div>
-      <div class="topbar__menu"><img src="<?php echo OBF_INCLUDES ?>./img/icons/menu-icon.svg" alt="menu-icon" /></div>
+      <div class="mobile topbar__menu"><img src="<?php echo OBF_INCLUDES ?>./img/icons/menu-icon.svg" alt="menu-icon" /></div>
 
-      <div class="desktop topbar__main__container">
-        <!-- Parte del menu con voci categorie-about-shop etcc. + searchbar -->
-        <div class="topbar__main">
-          <ul class="topbar__links">
-            <li class="dropdown-portfolio capitalize">
-              categoria
-              <div class="dropdown-content"></div>
-            </li>
-            <li class="capitalize">categoria</li>
-            <li class="capitalize">categoria</li>
-            <li class="capitalize">categoria</li>
-            <li class="capitalize">categoria</li>
-          </ul>
-          <div class="topbar__searchbar">
-            <input type="text" />
-          </div>
-        </div>
+      <!-- DESKTOP -->
+      <div class="desktop topbar__desk__contacts">
+        <ul>
+          <li class="first-li">
+            <a href="tel:+39 0973 577418">
+              <img src="<?php echo OBF_INCLUDES ?>./img/icons/phone-icon.svg" alt="" />
+              <p>0973 577418</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="<?php echo OBF_INCLUDES ?>./img/icons/location-icon.svg" alt="" />
+              <p>via Luigi Ciminelli, 84. Francavilla in Sinni (PZ)</p>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
+
+      <div class="desktop topbar__desk__login">
+        <a href="">
+          <p>Accedi</p>
+          <img src="<?php echo OBF_INCLUDES ?>img/icons/user-icon.svg" alt="" />
+          <img src="<?php echo OBF_INCLUDES ?>img/icons/cart-icon.svg" alt="" />
+        </a>
+      </div>
+
+      <div class="desktop topbar__desk__baseline">
+      <?php 
+        wp_nav_menu([
+          'theme_location' => 'main_menu',
+          // 'menu_class' => 'classe-da-dare e altre classi da voler aggiungere '
+        ]);
+      ?>
+        <!-- <ul>
+          <li><a href="#">Categoria</a></li>
+          <li><a href="#">Categoria</a></li>
+          <li><a href="#">Categoria</a></li>
+          <li><a href="#">Categoria</a></li>
+          <li><a href="#">Categoria</a></li>
+          <li>
+          </li>
+        </ul> -->
+            <div class="sidemenu__header__search-bar">
+              <input type="text" placeholder="Cosa stai cercando?" /><a href="#"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="" /></a>
+            </div>
+      </div>
+    </header>
+    <!-- END TOP BAR -->
     <nav id="side-menu" class="sidemenu">
       <div class="sidemenu__header">
         <div class="sidemenu__header__close-logo"><img src="<?php echo OBF_INCLUDES ?>img/icons/close-menu.svg" alt="" /></div>
