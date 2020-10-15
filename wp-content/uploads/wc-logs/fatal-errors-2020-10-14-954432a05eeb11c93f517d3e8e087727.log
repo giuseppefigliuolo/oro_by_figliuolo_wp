@@ -1,0 +1,10 @@
+2020-10-14T07:54:36+00:00 CRITICAL syntax error, unexpected '<', expecting end of file in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\themes\orobyfigliuolo\front-page.php on line 14
+
+2020-10-14T16:31:33+00:00 CRITICAL Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\plugins\woo-gutenberg-products-block\src\BlockTypes\ProductBestSellers.php on line 4
+
+2020-10-14T16:31:33+00:00 CRITICAL Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\plugins\woo-gutenberg-products-block\src\BlockTypes\ProductBestSellers.php on line 4
+
+2020-10-14T16:31:58+00:00 CRITICAL Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\plugins\woo-gutenberg-products-block\src\BlockTypes\ProductBestSellers.php on line 4
+
+2020-10-14T16:32:28+00:00 CRITICAL Namespace declaration statement has to be the very first statement or after any declare call in the script in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\plugins\woo-gutenberg-products-block\src\BlockTypes\ProductBestSellers.php on line 3
+

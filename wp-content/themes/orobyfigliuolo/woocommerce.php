@@ -4,7 +4,7 @@ get_header();
 
 <?php echo 'questa è una prova-> siamo su woocommerce.php' ?>
 <div class="shopping-page-container">
-      <div class="mobile filter-categories">
+      <!-- <div class="mobile filter-categories">
         <ul>
           <li>
             <a href="./shopping-page.html" class="">Collane</a>
@@ -49,8 +49,7 @@ get_header();
             <li><a href="">Negozio</a></li>
             <li>Collane</li>
           </ul>
-          <h2>Collane</h2>
-        </div>
+        </div> -->
         
         <!-- Products container -->
         <div class="shop-list">
@@ -77,10 +76,13 @@ get_header();
                 
                 ?>  */ -->
 
+      <!-- </div> -->
+      <div class="sidebar-container">
+      <?php if(dynamic_sidebar('products_sidebar')) : else : endif; ?>
+      
       </div>
     </div>
 
-<!-- \\ <?php woocommerce_content(); ?> -->
 
 <?php
 get_footer();
