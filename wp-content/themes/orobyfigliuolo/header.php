@@ -47,10 +47,23 @@
       </div>
 
       <div class="desktop topbar__desk__login">
-        <a href="">
-          <p>Accedi</p>
-          <img src="<?php echo OBF_INCLUDES ?>img/icons/user-icon.svg" alt="" />
-          <img src="<?php echo OBF_INCLUDES ?>img/icons/cart-icon.svg" alt="" />
+
+        <!-- link alla pagina 'my account del sito - esc_url serve a sanitanizzare il link, per la sicurezza-->
+        <!-- Qui ceckhiamo se lo user è loggato, se non lo è mostriamo accedi, se lo è mostriamo logout -->
+        <?php if(is_user_logged_in() ):  ?>
+          <a href="<?php echo esc_url(wp_logout_url(get_permalink( get_option('woocommerce_myaccount_page_id')))) ?>">
+            <p>Esci</p>
+            <img src="<?php echo OBF_INCLUDES ?>img/icons/user-icon.svg" alt="" />
+          </a>
+        <?php else:  ?>
+          <a href="<?php echo esc_url(get_permalink( get_option('woocommerce_myaccount_page_id'))) ?>">
+            <p>Accedi</p>
+            <img src="<?php echo OBF_INCLUDES ?>img/icons/user-icon.svg" alt="" />
+          </a>
+        <?php endif;  ?>
+        
+        <a href="<?php wc_get_cart_url() ?>">
+          <img src="<?php echo OBF_INCLUDES ?>img/icons/cart-icon.svg" alt="" /><span class="cart-counter"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         </a>
       </div>
 
@@ -71,7 +84,8 @@
           </li>
         </ul> -->
             <div class="sidemenu__header__search-bar">
-              <input type="text" placeholder="Cosa stai cercando?" /><a href="#"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="" /></a>
+              <!-- <input type="text" placeholder="Cosa stai cercando?" /><a href="#"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="" /></a> -->
+              <?php get_search_form() ?>
             </div>
       </div>
     </header>

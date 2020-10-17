@@ -3,6 +3,10 @@
 @import "./single-product.scss";
 @import "./woocommerce";
 
+body {
+  margin-top: 2.3rem;
+}
+
 .sidemenu {
   // display: none;
   background-color: $panna;
@@ -49,28 +53,52 @@
     &__search-bar {
       grid-column: 1/3;
       grid-row: 2/3;
-      width: fit-content;
-      align-self: center;
-      justify-self: center;
-      display: grid;
+      // width: fit-content;
+      // align-self: center;
+      // justify-self: center;
       height: 5vh;
       max-height: 150px;
-      grid-template-columns: 5fr 1fr;
-      grid-template-rows: 1fr;
-      & > input {
-        background-color: $light-panna;
-        grid-column: 1/3;
-        grid-row: 1/2;
-        height: 100%;
-        max-height: 42px;
-        border-radius: 3px;
-        border: 1px solid #cccccc;
-        padding-left: 10px;
-        transition: 0.3s;
-        font-size: 14px;
-        width: 59vw;
-        max-width: 274px;
+      display: flex;
+      & form {
         align-self: center;
+        height: 80%;
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        grid-template-rows: 1fr;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        input[type="search"] {
+          background-color: $light-panna;
+          grid-column: 1/3;
+          grid-row: 1/2;
+          height: 100%;
+          max-height: 42px;
+          border-radius: 3px;
+          border: 1px solid #cccccc;
+          padding-left: 10px;
+          transition: 0.3s;
+          font-size: 14px;
+          width: 59vw;
+          max-width: 274px;
+          align-self: center;
+        }
+        .obf-search-submit {
+          cursor: pointer;
+          background-image: url(../img/icons/search-icon.svg);
+          height: 23px;
+          width: 23px;
+          background-repeat: no-repeat;
+          background-color: transparent !important;
+          border: none;
+          grid-column: 2/3;
+          z-index: 5;
+          grid-row: 1/2;
+          align-self: center;
+          justify-self: center;
+          margin-bottom: -6px;
+          margin-right: -5px;
+        }
       }
       & > a {
         grid-column: 2/3;
@@ -105,6 +133,8 @@
 .topbar {
   position: fixed;
   background-color: #ffffff;
+  top: 0;
+  left: 0;
   z-index: 101;
   width: 100%;
   height: 4.94vh;
@@ -491,23 +521,8 @@ footer {
   }
 }
 
-// SWIPER CONTAINER
-.swiper-container {
-  width: 100%;
-}
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.swiper-container-horizontal > .swiper-scrollbar {
-  display: none;
-}
-.swiper-pagination-bullet-active {
-  background: black;
-}
-
 .three-rem-vert {
   margin: 2.8rem 0;
 }
+
 @import "./media700";

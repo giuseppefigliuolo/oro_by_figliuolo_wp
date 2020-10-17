@@ -24,6 +24,7 @@ define('OBF_VERSION', OBF_IS_STAGING ? time() : '1.0.1');
 // Se l'utente è l'amministratore può scrivere testi
 define('OBF_IS_ADMIN', current_user_can( 'edit_others_posts' ) );
 
+
 function obf_setup() {
     /**
      * add_theme_support will be used to add some functionalities
@@ -42,14 +43,59 @@ function obf_setup() {
 
         add_theme_support('menus');
         // Set up main menu
-        register_nav_menus( ['main_menu' => 'Menu Principale', 'footer_menu' => 'Menu del footer' ] );    
+        register_nav_menus( ['main_menu' => 'Menu Principale', 'footer_menu' => 'Menu del footer' ] ); 
+        // woocommerce init
+        add_theme_support( 'woocommerce', [
+            'thumbnail_image_width' => '255',
+            'single_image_width'    => '255',
+            'product_grid'          => array(
+                'default_rows' => '10',
+                'min_rows' => '5',
+                'max_rows' => '10',
+                'default_columns' => '3',
+                'min_columns' => '1',
+                'max_columns' => '3',
+            )
+        ] );
+        // customization for woocommerce single-product. It's a gallery of the product
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
+        
+        // This support is to add logo personalization in theme's settings
+        add_theme_support('custom-logo');
+
+        // feature to set a max-width for a single content
+        if ( ! isset( $content_width ) ) {
+            $content_width = 600;
+        }
 }
-    
+
 /**
  * in questa funzione quando definiamo la prima variabile quello sarà il MOMENTO in cui parte ed esegue il contenuto della funzione. In questo caso dopo 'after_setup_theme'
  * si esegue obf_setup
  */
 add_action ('after_setup_theme', 'obf_setup');
+
+require get_template_directory() . '/template-parts/wc-modifications/wc-modifications.php';
+
+/**
+ * Show cart contents / total Ajax
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', 'obf_woocommerce_header_add_to_cart_fragment' );
+
+function obf_woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<span class="cart-counter"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+	<?php
+	$fragments['span.cart-counter'] = ob_get_clean();
+	return $fragments;
+}
+
 
 function obf_widgets_registration(){
 
@@ -74,9 +120,7 @@ function obf_styles(){
     
     // enqueue our style.css file
     wp_enqueue_style( 'obf-reset', get_stylesheet_directory_uri().'/style.css', array(), null , 'all' );
-    wp_enqueue_style( 'obf-style', OBF_INCLUDES.'css/main.css', array( 'obf-reset' ),  null, 'all' );        
-    wp_enqueue_style( 'swiper_styles', 'https://unpkg.com/swiper/swiper-bundle.min.css', array('obf-style') , null , 'all');
-    
+    wp_enqueue_style( 'obf-style', OBF_INCLUDES.'css/main.css', array( 'obf-reset' ),  null, 'all' );            
 }
 add_action( 'wp_enqueue_scripts', 'obf_styles' );
 
@@ -129,13 +173,7 @@ if( function_exists('acf_register_block_type') ) {
         'category'          => 'formatting',
     ));
     }
-}
-
-function obf_add_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
-
-add_action( 'after_setup_theme', 'obf_add_woocommerce_support' );
+}   
 
 // Changing woocommerce sale badge text
 add_filter('woocommerce_sale_flash', 'woocommerce_custom_sale_text', 10, 3);

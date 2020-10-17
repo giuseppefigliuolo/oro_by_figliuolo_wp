@@ -70,18 +70,6 @@
         <p class="light"><a href="#">Cookies</a></p>
       </div>
     </footer>
-    <script>
-      var mySwiper = new Swiper(".swiper-container", {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          type: "bullets",
-        },
-      });
-  </script>
     <?php	wp_footer(); ?>
   </body>
 </html>
