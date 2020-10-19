@@ -13,6 +13,29 @@ get_header();
         }
     ?>
 
+<section class="popular-products">
+    <div class="obf-container">
+        <h2 class="capitalize">i nostri best seller</h2>
+        <!-- this is a woocommerce shortcode for products -->
+        <?php echo do_shortcode('[products limit="4" columns="4" orderby="popularity"]'); ?>
+    </div>
+</section>
+
+<section class="new-arrivals-products">
+    <div class="obf-container">
+        <h2 class="capitalize">nuovi arrivi</h2>
+        <!-- this is a woocommerce shortcode for products -->
+        <?php echo do_shortcode('[products limit="4" columns="4" orderby="date"]'); ?>
+    </div>
+</section>
+
+<section class="popular-products">
+    <div class="obf-container">
+        <h2 class="capitalize">Categorie</h2>
+        <!-- this is a woocommerce shortcode for products -->
+        <?php echo do_shortcode('[product_categories number="0" parent="0"]'); ?>
+    </div>
+</section>
 
 
 

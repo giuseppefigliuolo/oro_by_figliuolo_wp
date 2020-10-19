@@ -24,7 +24,7 @@
       <!-- MOBILE -->
       <div class="mobile topbar__search"><img src="<?php echo OBF_INCLUDES ?>./img/icons/search-icon.svg" alt="search-icon" /></div>
       <div class="topbar__logo">
-        <a href="./index.html"><img src="<?php echo OBF_INCLUDES ?>img/Logo.svg" alt="orobyfigliuolo-logo" /></a>
+        <a href="<?php echo home_url('/')?>"><img src="<?php echo OBF_INCLUDES ?>img/Logo.svg" alt="orobyfigliuolo-logo" /></a>
       </div>
       <div class="mobile topbar__menu"><img src="<?php echo OBF_INCLUDES ?>./img/icons/menu-icon.svg" alt="menu-icon" /></div>
 
@@ -62,7 +62,7 @@
           </a>
         <?php endif;  ?>
         
-        <a href="<?php wc_get_cart_url() ?>">
+        <a href="<?php wc_get_cart_url(); ?>">
           <img src="<?php echo OBF_INCLUDES ?>img/icons/cart-icon.svg" alt="" /><span class="cart-counter"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         </a>
       </div>

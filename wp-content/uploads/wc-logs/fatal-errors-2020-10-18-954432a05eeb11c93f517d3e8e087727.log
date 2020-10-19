@@ -1,0 +1,12 @@
+2020-10-18T09:18:32+00:00 CRITICAL Uncaught Error: Call to undefined function do_shortchode() in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\themes\orobyfigliuolo\front-page.php:20
+Stack trace:
+#0 C:\xampp\htdocs\orobyfigliuolo_wp\wp-includes\template-loader.php(106): include()
+#1 C:\xampp\htdocs\orobyfigliuolo_wp\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\orobyfigliuolo_wp\index.php(17): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\themes\orobyfigliuolo\front-page.php on line 20
+
+2020-10-18T17:33:59+00:00 CRITICAL syntax error, unexpected 'if' (T_IF), expecting ',' or ';' in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\themes\orobyfigliuolo\woocommerce\archive-product.php on line 54
+
+2020-10-18T21:19:50+00:00 CRITICAL syntax error, unexpected '<', expecting end of file in C:\xampp\htdocs\orobyfigliuolo_wp\wp-content\themes\orobyfigliuolo\woocommerce\archive-product.php on line 126
+
