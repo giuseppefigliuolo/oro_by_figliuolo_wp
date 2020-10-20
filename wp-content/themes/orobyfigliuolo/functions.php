@@ -188,6 +188,15 @@ function obf_acf_blocks_init()
             'render_template'   => 'template-parts/blocks/info.php',
             'category'          => 'formatting',
         ));
+
+        // Nuova inserzione prodotto
+        acf_register_block_type(array(
+            'name'              => 'normal-banner',
+            'title'             => 'Banner nuova inserzione',
+            'description'       => 'Banner dove poter inserire una nuova inserzione',
+            'render_template'   => 'template-parts/blocks/normal-banner/normal-banner.php',
+            'category'          => 'formatting',
+        ));
     }
 }
 
